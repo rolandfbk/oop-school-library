@@ -14,6 +14,10 @@ class Person < Nameable
 
   attr_accessor :name, :age
 
+  def add_rental(book, date)
+    Rental.new(date, self, book)
+  end
+
   def correct_name
     @name
   end
