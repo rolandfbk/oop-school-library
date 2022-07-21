@@ -18,3 +18,5 @@ class Student < Person
     classroom.students.push(self)
   end
 end
+
+# rubocop: enable Style/OptionalBooleanParameter

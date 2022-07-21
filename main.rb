@@ -1,3 +1,4 @@
+# rubocop:disable Metrics
 require './person'
 require './capitalize_decorator'
 require './trimmer_decorator'
@@ -58,7 +59,7 @@ class App
   end
 
   def list_all_books
-    puts 'There are no books to show! Please add a book.' unless !@books.empty?
+    puts 'There are no books to show! Please add a book.' if @books.empty?
 
     @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
     puts
@@ -67,7 +68,7 @@ class App
   end
 
   def list_all_people
-    puts 'There are no people to show! Please add a student or a teacher.' unless !@people.empty?
+    puts 'There are no people to show! Please add a student or a teacher.' if @people.empty?
 
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, Id: #{person.id}, Age: #{person.age}" }
     puts
@@ -99,13 +100,9 @@ class App
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.downcase
 
-    if permission == 'y'
-      parent_permission =  true
-    else
-      parent_permission =  false
-    end
+    parent_permission = permission == 'y'
 
-    student = Student.new("Grade 12", age, name, parent_permission)
+    student = Student.new('Grade 12', age, name, parent_permission)
     @people << student
 
     puts 'Person/Student created successfully'
@@ -151,21 +148,24 @@ class App
 
   def create_a_rental
     puts 'Select a book from the following list by number'
+
     @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
-  
+
     book_id = gets.chomp.to_i
-  
+
     puts 'Select a person from the following list by number (not id)'
-    @people.each_with_index { |person, index| puts "#{index}) [#{person.class}] Name: #{person.name}, Id: #{person.id}, Age: #{person.age}" }
-  
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, Id: #{person.id}, Age: #{person.age}"
+    end
+
     person_id = gets.chomp.to_i
-  
+
     print 'Date: '
     date = gets.chomp.to_s
-  
+
     rental = Rental.new(date, @people[person_id], @books[book_id])
     @rentals << rental
-  
+
     puts 'Rental created successfully'
     puts
     puts
@@ -175,10 +175,13 @@ class App
   def list_rentals_by_person_id
     print 'ID of person: '
     id = gets.chomp.to_i
-  
+
     puts 'Rentals:'
-    @rentals.each { |rental| puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id }
-    
+
+    @rentals.each do |rental|
+      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
+    end
+
     puts
     puts
     message_menu
@@ -186,8 +189,10 @@ class App
 end
 
 def main
-  app = App.new()
-  app.run()
+  app = App.new
+  app.run
 end
 
-main()
+main
+
+# rubocop:enable Metrics
