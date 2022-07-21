@@ -1,4 +1,3 @@
-# rubocop:disable Metrics
 require './person'
 require './capitalize_decorator'
 require './trimmer_decorator'
@@ -13,49 +12,6 @@ class App
     @people = []
     @books = []
     @rentals = []
-    # @class = Classroom.new('Grade 5')
-  end
-
-  def run
-    puts 'Welcome To School Library App!'
-    puts
-    puts
-    message_menu
-  end
-
-  def message_menu
-    puts 'Please choose an option by entering a number'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
-
-    choice = gets.chomp
-    get_choice choice
-  end
-
-  def get_choice(input)
-    case input
-    when '1'
-      list_all_books
-    when '2'
-      list_all_people
-    when '3'
-      create_a_person
-    when '4'
-      create_a_book
-    when '5'
-      create_a_rental
-    when '6'
-      list_rentals_by_person_id
-    when '7'
-      puts 'Thank you for using the School Library App!'
-    else
-      puts 'Please enter a number between 1 and 7'
-    end
   end
 
   def list_all_books
@@ -64,7 +20,6 @@ class App
     @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
     puts
     puts
-    message_menu
   end
 
   def list_all_people
@@ -73,7 +28,6 @@ class App
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, Id: #{person.id}, Age: #{person.age}" }
     puts
     puts
-    message_menu
   end
 
   def create_a_person
@@ -108,7 +62,6 @@ class App
     puts 'Person/Student created successfully'
     puts
     puts
-    message_menu
   end
 
   def create_teacher
@@ -127,7 +80,6 @@ class App
     puts 'Person/Teacher created successfully'
     puts
     puts
-    message_menu
   end
 
   def create_a_book
@@ -143,7 +95,6 @@ class App
     puts 'Book created successfully'
     puts
     puts
-    message_menu
   end
 
   def create_a_rental
@@ -169,7 +120,6 @@ class App
     puts 'Rental created successfully'
     puts
     puts
-    message_menu
   end
 
   def list_rentals_by_person_id
@@ -184,8 +134,5 @@ class App
 
     puts
     puts
-    message_menu
   end
 end
-
-# rubocop:enable Metrics
