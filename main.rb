@@ -2,7 +2,7 @@
 
 require './app'
 
-def menu(option)
+def menu(option, myapp)
   case option
   when '1'
     myapp.list_all_books
@@ -35,7 +35,7 @@ def run
   puts
 end
 
-def message_menu(_myapp)
+def message_menu(myapp)
   puts 'Please choose an option by entering a number'
   puts '1 - List all books'
   puts '2 - List all people'
@@ -46,7 +46,7 @@ def message_menu(_myapp)
   puts '7 - Exit'
 
   choice = gets.chomp
-  menu(choice)
+  menu(choice, myapp)
 end
 
 def main
