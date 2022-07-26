@@ -10,7 +10,7 @@ def load_people(mypeople)
   if File.exist?('./data/people.json')
     file = File.open('./data/people.json')
 
-    if file.empty?
+    if File.empty?('./data/people.json')
       mypeople << []
     else
       people = JSON.parse(File.read('./data/people.json'))
