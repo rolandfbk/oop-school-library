@@ -6,23 +6,23 @@ require './teacher'
 require './rental'
 require './book'
 
-def load_people mypeople
-  if File.exists?('./data/people.json')
+def load_people(mypeople)
+  if File.exist?('./data/people.json')
     file = File.open('./data/people.json')
 
-    if file.size != 0
+    if file.empty?
+      mypeople << []
+    else
       people = JSON.parse(File.read('./data/people.json'))
       # p people.length()
       people.each do |person|
         # p person
-        if person['type'] == 'Student'
-          mypeople <<  Student.new(person['classroom'], person['age'], person['name'], person['parent_permission'])
-        else
-          mypeople << Teacher.new(person['specialization'], person['age'], person['name'], person['parent_permission'])
-        end
+        mypeople << if person['type'] == 'Student'
+                      Student.new(person['classroom'], person['age'], person['name'], person['parent_permission'])
+                    else
+                      Teacher.new(person['specialization'], person['age'], person['name'], person['parent_permission'])
+                    end
       end
-    else
-      mypeople << []
     end
     file.close
   else
@@ -30,11 +30,11 @@ def load_people mypeople
   end
 end
 
-def load_books mybook
-  if File.exists?('./data/books.json')
+def load_books(mybook)
+  if File.exist?('./data/books.json')
     file = File.open('./data/books.json')
-    
-    if file.size == 0
+
+    if file.size.zero?
       mybook << []
     else
       books = JSON.parse(File.read('./data/books.json'))
@@ -49,11 +49,11 @@ def load_books mybook
   end
 end
 
-def load_rentals myrental
-  if File.exists?('./data/rentals.json')
+def load_rentals(myrental)
+  if File.exist?('./data/rentals.json')
     file = File.open('./data/rentals.json')
-    
-    if file.size == 0
+
+    if file.size.zero?
       myrental << []
     else
       rentals = JSON.parse(File.read('./data/rentals.json'))
@@ -77,19 +77,18 @@ def save_student(classroom, age, name, parent_permission)
     parent_permission: parent_permission
   }
 
-
-  if File.exists?('./data/people.json')
+  if File.exist?('./data/people.json')
     file = File.open('./data/people.json')
 
-    if file.size == 0
+    if file.size.zero?
       student = [obj]
     else
       student = JSON.parse(File.read('./data/people.json'))
       student << obj
     end
-    
+
     file.close
-    
+
     myfile = File.open('./data/people.json', 'w')
     myfile.write(JSON.pretty_generate(student))
     myfile.close
@@ -105,10 +104,10 @@ def save_teacher(specialization, age, name)
     parent_permission: true
   }
 
-  if File.exists?('./data/people.json')
+  if File.exist?('./data/people.json')
     file = File.open('./data/people.json')
 
-    if file.size == 0
+    if file.size.zero?
       teacher = [obj]
     else
       teacher = JSON.parse(File.read('./data/people.json'))
@@ -116,7 +115,7 @@ def save_teacher(specialization, age, name)
     end
 
     file.close
-    
+
     myfile = File.open('./data/people.json', 'w')
     myfile.write(JSON.pretty_generate(teacher))
     myfile.close
@@ -129,10 +128,10 @@ def save_book(title, author)
     author: author
   }
 
-  if File.exists?('./data/books.json')
+  if File.exist?('./data/books.json')
     file = File.open('./data/books.json')
-    
-    if file.size == 0
+
+    if file.size.zero?
       book = [obj]
     else
       book = JSON.parse(File.read('./data/books.json'))
@@ -140,7 +139,7 @@ def save_book(title, author)
     end
 
     file.close
-    
+
     myfile = File.open('./data/books.json', 'w')
     myfile.write(JSON.pretty_generate(book))
     myfile.close
@@ -154,10 +153,10 @@ def save_rental(date, person_id, book_id)
     book: book_id
   }
 
-  if File.exists?('./data/rentals.json')
+  if File.exist?('./data/rentals.json')
     file = File.open('./data/rentals.json')
-    
-    if file.size == 0
+
+    if file.size.zero?
       rental = [obj]
     else
       rental = JSON.parse(File.read('./data/rentals.json'))
@@ -165,7 +164,7 @@ def save_rental(date, person_id, book_id)
     end
 
     file.close
-    
+
     myfile = File.open('./data/rentals.json', 'w')
     myfile.write(JSON.pretty_generate(rental))
     myfile.close
