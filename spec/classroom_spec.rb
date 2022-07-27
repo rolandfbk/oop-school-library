@@ -1,5 +1,5 @@
-require '../classroom'
-require '../student'
+require './classroom'
+require './student'
 
 describe Classroom do
   before :each do
