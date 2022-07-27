@@ -6,6 +6,7 @@ require './classroom'
 require './teacher'
 require './rental'
 require './book'
+require './data/data_abstraction'
 
 class App
   def initialize
@@ -56,8 +57,12 @@ class App
 
     parent_permission = permission == 'y'
 
-    student = Student.new('Grade 12', age, name, parent_permission)
+    classroom = 'Grade 12'
+
+    student = Student.new(classroom, age, name, parent_permission)
     @people << student
+
+    save_student(classroom, age, name, parent_permission)
 
     puts 'Person/Student created successfully'
     puts
@@ -77,6 +82,8 @@ class App
     teacher = Teacher.new(specialization, age, name)
     @people << teacher
 
+    save_teacher(specialization, age, name)
+
     puts 'Person/Teacher created successfully'
     puts
     puts
@@ -91,6 +98,8 @@ class App
 
     book = Book.new(title, author)
     @books << book
+
+    save_book(title, author)
 
     puts 'Book created successfully'
     puts
@@ -117,6 +126,8 @@ class App
     rental = Rental.new(date, @people[person_id], @books[book_id])
     @rentals << rental
 
+    save_rental(date, person_id, book_id)
+
     puts 'Rental created successfully'
     puts
     puts
@@ -135,4 +146,16 @@ class App
     puts
     puts
   end
+
+  def load_preserve_data
+    load_people @people
+    load_books @books
+    load_rentals @rentals
+  end
+
+  # def show_data
+  #   p @people
+  #   p @books
+  #   p @rentals
+  # end
 end
