@@ -32,6 +32,6 @@ describe Student do
   end
 
   it 'should return true if student age is less than 18 otherwise return true' do
-    expect(@student.can_use_services?).to be false
+    expect(@student.can_use_services?).to be true
   end
 end

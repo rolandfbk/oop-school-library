@@ -24,7 +24,7 @@ class Person < Nameable
   end
 
   def can_use_services?
-    of_age?
+    of_age? || @parent_permission
   end
 
   private
