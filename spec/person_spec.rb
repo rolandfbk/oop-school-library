@@ -7,7 +7,7 @@ describe Person do
     @person_unknown = Person.new 33
   end
 
-  it "should returns a Book object" do
+  it "should returns a Person object" do
     expect(@person).to be_instance_of Person
     expect(@person_unknown).to be_instance_of Person
   end
