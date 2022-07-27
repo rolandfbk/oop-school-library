@@ -1,0 +1,9 @@
+[
+  {
+    "type": "Student",
+    "classroom": "Grade 12",
+    "name": "rol",
+    "age": 20,
+    "parent_permission": true
+  }
+]
