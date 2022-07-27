@@ -5,5 +5,12 @@
     "name": "rol",
     "age": 20,
     "parent_permission": true
+  },
+  {
+    "type": "Teacher",
+    "specialization": "Nursery",
+    "name": "Sir John",
+    "age": 60,
+    "parent_permission": true
   }
 ]
