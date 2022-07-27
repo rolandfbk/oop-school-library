@@ -12,5 +12,12 @@
     "name": "Sir John",
     "age": 60,
     "parent_permission": true
+  },
+  {
+    "type": "Student",
+    "classroom": "Grade 12",
+    "name": "Joe",
+    "age": 5,
+    "parent_permission": false
   }
 ]
