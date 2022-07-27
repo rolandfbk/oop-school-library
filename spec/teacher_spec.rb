@@ -1,12 +1,11 @@
 require './teacher'
 
 describe Teacher do
-
   before :each do
     @teacher = Teacher.new 'Nursery', 60, 'Sir John', true
   end
 
-  it "should returns a teacher object" do
+  it 'should returns a teacher object' do
     expect(@teacher).to be_instance_of Teacher
   end
 
@@ -21,5 +20,4 @@ describe Teacher do
   it 'should return true if person age is less than 18 otherwise return true' do
     expect(@teacher.can_use_services?).to be true
   end
-
 end

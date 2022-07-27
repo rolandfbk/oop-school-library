@@ -1,13 +1,12 @@
 require './student'
 
 describe Student do
-
   before :each do
     @student = Student.new 'Grade 12', 20, 'Roland'
     @student_unknown = Student.new 'Grade 6', 12
   end
 
-  it "should returns a Student object" do
+  it 'should returns a Student object' do
     expect(@student).to be_instance_of Student
   end
 
@@ -35,5 +34,4 @@ describe Student do
   it 'should return true if student age is less than 18 otherwise return true' do
     expect(@student.can_use_services?).to be false
   end
-
 end

@@ -1,12 +1,11 @@
 require './book'
 
 describe Book do
-
   before :each do
     @book = Book.new 'Love Must Lead', 'Gabrielle'
   end
 
-  it "takes two parameters and returns a Book object" do
+  it 'takes two parameters and returns a Book object' do
     expect(@book).to be_instance_of Book
   end
 
@@ -17,5 +16,4 @@ describe Book do
   it 'should show the book author' do
     expect(@book.author).to eq 'Gabrielle'
   end
-
 end

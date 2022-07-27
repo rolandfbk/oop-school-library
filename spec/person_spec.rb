@@ -1,13 +1,12 @@
 require './person'
 
 describe Person do
-
   before :each do
     @person = Person.new 20, 'Roland'
     @person_unknown = Person.new 33
   end
 
-  it "should returns a Person object" do
+  it 'should returns a Person object' do
     expect(@person).to be_instance_of Person
     expect(@person_unknown).to be_instance_of Person
   end
@@ -33,5 +32,4 @@ describe Person do
   it 'should return true if person age is less than 18 otherwise return true' do
     expect(@person.can_use_services?).to be false
   end
-
 end
