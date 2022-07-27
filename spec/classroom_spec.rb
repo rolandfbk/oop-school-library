@@ -2,13 +2,12 @@ require '../classroom'
 require '../student'
 
 describe Classroom do
-
   before :each do
     @classroom = Classroom.new 'Grade 12'
     @student = Student.new 'Grade 12', 20, 'Roland'
   end
 
-  it "should returns a Classroom object" do
+  it 'should returns a Classroom object' do
     expect(@classroom).to be_instance_of Classroom
   end
 
@@ -24,5 +23,4 @@ describe Classroom do
     @classroom.add_student @student
     expect(@classroom.students.length).to eq 2
   end
-
 end
