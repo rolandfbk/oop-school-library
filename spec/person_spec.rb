@@ -40,18 +40,16 @@ describe Person do
     expect(@person_under_age.can_use_services?).to be true
   end
 
-  it "The can_use_services? method returns true if under age and no parent permission" do
+  it 'The can_use_services? method returns true if under age and no parent permission' do
     expect(@person_permission.can_use_services?).to be true
   end
 
-  it "The can_use_services? method returns false if over age and no parent permission" do
+  it 'The can_use_services? method returns false if over age and no parent permission' do
     expect(@person_over_age.can_use_services?).to be false
   end
 
-  it "The add_rental method returns a rental and adds its to the book" do
+  it 'The add_rental method returns a rental and adds its to the book' do
     @person.add_rental(@book, @date)
     expect(@person.rentals.length).to eq 1
   end
-
-  
 end
