@@ -5,7 +5,7 @@ require './book'
 
 describe Rental do
   before :each do
-    @person = Student.new nil, 22, 'Roland', parent_permission: true
+    @person = Student.new nil, 20, 'Roland', parent_permission: true
     @book = Book.new 'Love Must Lead', 'Gabrielle'
     @rental = Rental.new '2022-07-27', @person, @book
   end
