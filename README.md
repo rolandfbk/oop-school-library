@@ -20,11 +20,13 @@ To get a local copy up and running follow these simple steps.
 - [x] A code editor like Visual Studio Code with Git and Ruby.
 
 You can check if Git is installed by running the following command in the terminal.
+
 ```
 $ git --version
 ```
 
 Likewise for Ruby installation.
+
 ```
 $ ruby --version && irb
 ```
@@ -47,12 +49,19 @@ Kindly modify the files as needed.
 
 ## Authors
 
-
 👤 **Author**
 
 - GitHub: [@githubhandle](https://github.com/rolandfbk)
 - Twitter: [@twitterhandle](https://twitter.com/rolandfbk)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/roland-ossisa-yuma)
+
+## Author
+
+👤 **Nii Amanor Djoleto**
+
+- GitHub: [@ramrod433](https://github.com/ramrod433)
+- Twitter: [@\_Djoleto](https://twitter.com/_djoleto_)
+- LinkedIn: [Nii Amanor Djoleto](https://linkedin.com/in/nii-amanor-djoleto)
 
 ## 🤝 Contributing
 
